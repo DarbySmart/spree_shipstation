@@ -38,12 +38,10 @@ xml.Orders(pages: (@shipments.total_count/50.0).ceil) {
       xml.ShippingAmount order.ship_total
       xml.CustomField1   order.number
 
-=begin
       if order.gift?
         xml.Gift         order.gift?
         xml.GiftMessage  order.message if order.message
       end
-=end
 
       xml.Customer {
         xml.CustomerCode order.email.slice(0, 50)
