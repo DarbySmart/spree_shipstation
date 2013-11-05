@@ -40,8 +40,8 @@ xml.Orders(pages: (@shipments.total_count/50.0).ceil) {
 
 =begin
       if order.gift?
-        xml.Gift
-        xml.GiftMessage
+        xml.Gift         order.gift?
+        xml.GiftMessage  order.message if order.message
       end
 =end
 
