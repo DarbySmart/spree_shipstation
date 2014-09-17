@@ -70,6 +70,15 @@ xml.Orders(pages: (@shipments.total_count/50.0).ceil) {
                 end
               }
             end
+
+            if variant.contents.any?
+              xml.Options {
+                xml.Option {
+                  xml.Name 'Contents'
+                  xml.Value variant.contents.join('; ')
+                }
+              }
+            end
           }
         end
       }
