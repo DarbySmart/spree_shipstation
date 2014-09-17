@@ -79,6 +79,15 @@ xml.Orders(pages: (@shipments.total_count/50.0).ceil) {
                 }
               }
             end
+
+            if variant.product.how_to.present?
+              xml.Options {
+                xml.Option {
+                  xml.Name 'How To'
+                  xml.Value variant.product.how_to.code
+                }
+              }
+            end
           }
         end
       }
